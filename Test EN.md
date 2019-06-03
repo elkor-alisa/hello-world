@@ -8,9 +8,9 @@ People don’t read bytes so we can understand the code only if it is translated
 
 The process of converting bytes into characters is called **decoding**, and the reverse process is called **encoding** respectively. 
 
-Компьютерные программы обычно пишутся не для одиночного использования, поэтому ими пользуются разные люди разных национальностей, которые говорят на разных языках. Из этого следует, что нам очень важно знать, как именно закодированы строки нашей программы, иначе мы не сможем правильно их интерпретировать или показать пользователю.
+Computer programs are usually used by different people of different nationalities who speak different languages. This follows the fact that it is very important to know how the strings of our program are encoded, otherwise, we will not be able to correctly interpret or show them to the user.
 
-Поэтому нам нужны стандарты кодирования, чтобы сопоставлять символы алфавита байтам.
+Therefore, we need coding standards to match the alphabet characters with bytes.
 
 ## First standardization attempts
 
@@ -37,7 +37,6 @@ There are several UTF formats, the choice of a particular one depends on how you
 
 All formats can encode the same Unicode character set, but each character in a different encoding will represent a different sequence of bytes.
 
-
 ## Unicode Transformation Formats
 
 Let’s look at the two well-known Unicode formats and sum up what their pros, cons and major differences are.
@@ -55,7 +54,6 @@ Since a UTF-16 character is one or two pairs of bytes, it is also important to u
 To determine this, the **Byte Order Mark** is used. This is a U+FEFF tag — it does not encode any character in Unicode, but is used specifically for this purpose.
 
 If when reading a string it turned out U+FEFF, it means that the byte order is direct and the high surrogate goes first, so the encoding is called UTF-16BE (big-endian). If U+FFFE was considered, then the order is reversed and the low surrogate goes first, so the encoding is called UTF-16LE (little-endian).
-
 
 #### Pros
 
@@ -79,9 +77,9 @@ A character in UTF-8 takes from 1 to 4 bytes depending on its code plane. For La
 
 #### Pros
 
-Для работы с символами из ASCII использование UTF-8 выгоднее с точки зрения памяти. 
+UTF-8 is more profitable for working with ASCII characters in terms of efficiency.
 
-Не нужно знать порядок байтов.
+The byte order is not relevant.
 
 #### Cons
 
